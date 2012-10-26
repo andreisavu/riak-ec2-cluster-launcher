@@ -4,7 +4,7 @@
 `launch.py` is a simple Python script to launch an `N`-node Riak cluster. The requirements can be installed
 with:
 
-    virtualenv --distributed launcher-env
+    virtualenv --distribute launcher-env
     . launcher-env/bin/activate
     pip install -r requirements.txt 
 
