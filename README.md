@@ -13,13 +13,12 @@ To run the command you will also need an EC2 account, and your environment varia
 
 Sample ~/.boto file:
 
-[Boto]
-debug = 0
-num_retries = 10
-
-[Credentials]
-aws_access_key_id = ACCESS_KEY
-aws_secret_access_key = SECRET_KEY
+    [Boto]
+    debug = 0
+    num_retries = 10
+    [Credentials]
+    aws_access_key_id = ACCESS_KEY
+    aws_secret_access_key = SECRET_KEY
 
 ## Usage
 
