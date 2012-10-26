@@ -90,9 +90,9 @@ def main(keypair, key_filename, user_data_filename, num_nodes):
     master_internal_ip = master_reservation.instances[0].private_dns_name
     logger.info('master node is %s' % master_reservation.instances[0].dns_name)
     user_data += '\nriak-admin wait-for-service riak_kv riak@`hostname -f`\n'
-    user_data += '\npython -c "import time, random; time.sleep(random.choice(range(1500)));"\n'
+    user_data += '\npython -c "import time, random; time.sleep(random.choice(range(60)));"\n'
     #user_data += '\nriak-admin wait-for-service riak_kv riak@%s\n' % master_internal_ip
-    user_data += 'riak-admin join riak@%s\n' % master_internal_ip
+    user_data += 'riak-admin join -f riak@%s\n' % master_internal_ip
 
     cluster_reservation = conn.run_instances("ami-ccf405a5",
         min_count = num_nodes,
