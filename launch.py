@@ -72,7 +72,7 @@ def _wait_for_cmd(host, key_filename, command):
 def main(keypair, key_filename, user_data_filename, num_nodes):
     conn = boto.connect_ec2()
     user_data = open(user_data_filename, 'r').read()
-    instance_type = "m1.medium"    
+    instance_type = "m1.small"    
 
     # instance-store ami ami-7000f019
     master_reservation = conn.run_instances("ami-ccf405a5",
