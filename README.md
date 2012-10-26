@@ -4,10 +4,22 @@
 `launch.py` is a simple Python script to launch an `N`-node Riak cluster. The requirements can be installed
 with:
 
-    sudo pip install fabric paramiko boto
+    virtualenv --distributed launcher-env
+    . launcher-env/bin/activate
+    pip install -r requirements.txt 
 
 To run the command you will also need an EC2 account, and your environment variables set as described
 [here](http://code.google.com/p/boto/wiki/BotoConfig).
+
+Sample ~/.boto file:
+
+[Boto]
+debug = 0
+num_retries = 10
+
+[Credentials]
+aws_access_key_id = ACCESS_KEY
+aws_secret_access_key = SECRET_KEY
 
 ## Usage
 

@@ -72,6 +72,7 @@ def _wait_for_cmd(host, key_filename, command):
 def main(keypair, key_filename, user_data_filename, num_nodes):
     conn = boto.connect_ec2()
     user_data = open(user_data_filename, 'r').read()
+    instance_type = "m1.medium"    
 
     # instance-store ami ami-7000f019
     master_reservation = conn.run_instances("ami-ccf405a5",
@@ -79,7 +80,7 @@ def main(keypair, key_filename, user_data_filename, num_nodes):
         max_count = 1,
         key_name = keypair,
         user_data = user_data,
-        instance_type='t1.micro',
+        instance_type = instance_type,
         )
 
     _wait_for_reservation(master_reservation)
@@ -96,11 +97,12 @@ def main(keypair, key_filename, user_data_filename, num_nodes):
         count = num_nodes,
         key_name = keypair,
         user_data = user_data,
-        instance_type='t1.micro',
+        instance_type = instance_type,
         )
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
+
     logging.getLogger('boto').setLevel(logging.CRITICAL)
     logging.getLogger('paramiko').setLevel(logging.CRITICAL)
     logging.getLogger('fabric').setLevel(logging.CRITICAL)

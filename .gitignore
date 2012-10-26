@@ -1,1 +1,4 @@
 readme.html
+*.swp
+*.pyc
+launcher-env/*
