@@ -31,6 +31,5 @@ Sample ~/.boto file:
 
 ## Limitations
 
-Each machine will download Riak application configuration from an s3 bucket that I personally own.
-If you really wanted to be secure, you would copy this config to a server that you control, or
-just use `sed` or something and edit the app defaults from `user_data.sh`.
+Make sure you update the links in "user_data.sh" to point to your fork.
+ 
