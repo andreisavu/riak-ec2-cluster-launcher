@@ -1,4 +1,4 @@
 #! /bin/bash
-. launcher-env/bin/activate
+. sandbox/bin/activate
 ./launch.py local-key ~/.ssh/id_rsa user_data.sh "$@"
 
