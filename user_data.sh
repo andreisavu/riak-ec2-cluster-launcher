@@ -11,10 +11,10 @@ version=1.2.1-1_i386
 wget http://downloads.basho.com.s3-website-us-east-1.amazonaws.com/riak/CURRENT/ubuntu/lucid/riak_${version}.deb
 dpkg -i riak_${version}.deb
 
-sudo wget "https://riak-cluster-chef.s3.amazonaws.com/app.config"
-sudo wget "https://riak-cluster-chef.s3.amazonaws.com/vm.args"
+# sudo wget "https://riak-cluster-chef.s3.amazonaws.com/app.config"
+# cat app.config > /etc/riak/app.config
 
-cat app.config > /etc/riak/app.config
+wget "https://riak-cluster-chef.s3.amazonaws.com/vm.args"
 cat vm.args > /etc/riak/vm.args
 
 riak start

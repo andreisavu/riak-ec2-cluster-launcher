@@ -84,7 +84,8 @@ def main(keypair, key_filename, user_data_filename, num_nodes):
         )
 
     _wait_for_reservation(master_reservation)
-    _wait_for_cmd_for_instances(master_reservation.instances, ['riak-admin wait-for-service riak_kv riak@`hostname -f`'])
+    _wait_for_cmd_for_instances(master_reservation.instances, \
+        ['riak-admin wait-for-service riak_kv riak@`hostname -f`'])
 
     master_internal_ip = master_reservation.instances[0].private_dns_name
     logger.info('master node is %s' % master_reservation.instances[0].dns_name)
@@ -93,8 +94,9 @@ def main(keypair, key_filename, user_data_filename, num_nodes):
     #user_data += '\nriak-admin wait-for-service riak_kv riak@%s\n' % master_internal_ip
     user_data += 'riak-admin join riak@%s\n' % master_internal_ip
 
-    cluster_reservation = conn.request_spot_instances(0.02, "ami-ccf405a5",
-        count = num_nodes,
+    cluster_reservation = conn.run_instances("ami-ccf405a5",
+        min_count = num_nodes,
+        max_count = num_nodes,
         key_name = keypair,
         user_data = user_data,
         instance_type = instance_type,
