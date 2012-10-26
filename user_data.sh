@@ -7,7 +7,7 @@ apt-get update && apt-get upgrade -y
 
 apt-get install -y wget
 
-local version=1.2.1-1_i386
+version=1.2.1-1_i386
 wget http://downloads.basho.com.s3-website-us-east-1.amazonaws.com/riak/CURRENT/ubuntu/lucid/riak_${version}.deb
 dpkg -i riak_${version}.deb
 
